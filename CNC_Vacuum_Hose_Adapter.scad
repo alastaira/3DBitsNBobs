@@ -12,7 +12,7 @@ LargeEndLength = 30;
 //For the small end, is the measurement the adapter's outside or inside diameter?
 SmallEndMeasured = "outside"; //[outside, inside]
 //Diameter of Small End? (mm)
-SmallEndDiameter = 34;
+SmallEndDiameter = 31;
 // Length of Small End? (mm)
 SmallEndLength = 25;
 // Length of Taper Section? (mm)
