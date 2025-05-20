@@ -2,9 +2,25 @@ include <BOSL2/std.scad>
 $fn=64;
 
 
+hour_adaptor();
+//minute_adaptor();
+
+
+
+module hour_adaptor(){
+  tube(od=5.6, id=4.4, h=3.5 );
+}
+
+module minute_adaptor(){
+  tube(od=3.7, id=1.9, h=3.5 );
+}
+
+
+
+/*
 linear_extrude(2)
 minute_hand();
-
+*/
 
 module hour_hand(){
   diff(){
