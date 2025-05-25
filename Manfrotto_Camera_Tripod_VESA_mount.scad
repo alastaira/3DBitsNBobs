@@ -4,10 +4,11 @@
 include <BOSL2/std.scad>
 $fn=64;
 
-linear_extrude(2)
+linear_extrude(3)
 VESA_plate();
+up(.25)
+rotate([0,90,90-20])
 
-rotate([0,90,90-22.5])
 clip();
 
 module VESA_plate(){
@@ -28,7 +29,7 @@ module VESA_plate(){
 
 module clip() {
   difference(){
-    tube(id=25, od=30, h=20, anchor=RIGHT);
-    left(30) rotate([0,0,45]) cuboid([30,30,30]);
+    tube(id=24.5, od=30, h=30, anchor=RIGHT);
+    left(36) rotate([0,0,45]) cuboid([30,30,30]);
   }
 }
