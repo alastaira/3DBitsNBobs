@@ -1,9 +1,27 @@
 include <BOSL2/std.scad>
+include <BOSL2/nema_steppers.scad>
 include <NopSCADlib/core.scad>
 include <NopSCADlib/vitamins/pulleys.scad>
 include <NopSCADlib/vitamins/belts.scad>
 include <NopSCADlib/vitamins/stepper_motors.scad>
 
+
+down(13)
+diff(){
+  left(24)cuboid([103,50,3], rounding=2, edges="Z");
+  tag("remove") left(50) nema_mount_mask(size=17, depth=5, l=0);
+  tag("remove") zcyl(d=8.1, h=10);
+}
+up(5)
+diff(){
+  right(50)cuboid([50,50,3], rounding=2, edges="Z");
+  tag("remove") right(50) nema_mount_mask(size=17, depth=5, l=0);
+}
+right(26)
+down(4)
+cuboid([5,50,21], rounding=1, edges="Z");
+
+if($preview) {
 //                                                 n       t   o      b         w    h  h    b     f    f  s   s    s              s
 //                                                 a       e   d      e         i    u  u    o     l    l  c   c    c              c
 //                                                 m       e          l         d    b  b    r     a    a  r   r    r              r
@@ -14,8 +32,6 @@ include <NopSCADlib/vitamins/stepper_motors.scad>
 //                                                                                                 d    t
 GT2x48_pulley_8          = ["GT2x48_pulley",        "GT2",   48, 30.05, GT2x6,  11,    24, 6,   8, 35,   1.0, 6, 3,  M3_grub_screw, 1]; // Powge branded from West3D
 GT2x48_pulley_6          = ["GT2x48_pulley",        "GT2",   48, 30.05, GT2x6,  11,    24, 6,   6, 35,   1.0, 6, 3,  M3_grub_screw, 1]; // Powge branded from West3D
-
-
 // Hour stepper
 left(50){
   pulley_assembly(GT2x16_pulley);
@@ -48,4 +64,4 @@ up(18){
   ];
   belt(GT2x6, path2, open = false);
 }
-
+}
