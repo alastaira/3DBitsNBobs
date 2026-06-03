@@ -32,7 +32,7 @@ module plate() {
     cuboid([D+4,motor_width+4+0.4,3], chamfer=0, edges="Z", anchor=BOTTOM);
     fwd(motor_width/2+0.2) cuboid([D+4, 2, 6], anchor=TOP+BACK);
     back(motor_width/2+0.2) cuboid([D+4, 2, 6], anchor=TOP+FRONT);
-    //tube(id=8.1, h=5, od=10.1, anchor=BOTTOM);
+    tube(id=8.1, h=5, od1=12.1, od2=14.1, anchor=TOP);
     tag("remove") left(C) nema_mount_mask(size=17, depth=5, l=6, spin=90, anchor=BOTTOM);
     tag("remove") zcyl(d=8.1, h=10);
     tag("remove") right(C) nema_mount_mask(size=17, depth=5, l=6, spin=90, anchor=BOTTOM);
