@@ -2,6 +2,7 @@ include <NopSCADlib/core.scad>
 use <NopSCADlib/utils/layout.scad>
 include <NopSCADlib/vitamins/pulleys.scad>
 include <NopSCADlib/vitamins/linear_bearings.scad>
+include <NopSCADlib/vitamins/ball_bearings.scad>
 include <NopSCADlib/vitamins/belts.scad>
 include <NopSCADlib/vitamins/stepper_motors.scad>
 include <NopSCADlib/vitamins/extrusions.scad>
@@ -29,12 +30,19 @@ module roller_bracket() {
       left(40) ycyl(d=26, h=23, $fn=64);
       cuboid([35, 23, 26]); 
     }
-    tag("remove") left(40) ycyl(d=15.2, h=24, $fn=64);
+    // Bearing hole (608 bearing is 22mm diameter x 7 height)
+    tag("remove") left(40)  back(7.75)  ycyl(d=22.2, h=7.5, $fn=64);
+    
+   # tag("remove") left(40)  ycyl(d=10, h=23, $fn=64);
+    
+    
     #tag("remove") back(1.5) right(2.5)  cuboid([30,20,20]);
     tag("remove") move_copies([[-5, 1.5, 5], [10, 1.5, 10], [-5, 1.5, -15], [10, 1.5, -15]])  screw_hole("M5,8", thread=false, anchor=BOTTOM);
     tag("remove") move_copies([[-5, -5, 0], [10, -5, 0]])  screw_hole("M5,8", thread=false, anchor=BOTTOM, orient=FRONT);
   }
   //left(40) rotate([90, 0, 0])linear_bearing(LM8UU);
+  
+ // left(40) rotate([90, 0, 0])ball_bearing(BB608);  //22x7
 }
   
 
